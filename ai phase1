@@ -1,0 +1,25 @@
+import spacy
+from transformers import pipeline
+# Load spaCy for document processing
+nlp = spacy.load(&quot;en_core_web_sm&quot;)
+# Define the document you want the chatbot to analyze
+document = document.txt
+
+# Preprocess the document
+document_doc = nlp(document)
+# Create a question-answering pipeline using BERT
+question_answering = pipeline(&quot;question-answering&quot;,
+model=&quot;bert-base-cased&quot;, tokenizer=&quot;bert-base-cased&quot;)
+# Main chat loop
+print(&quot;Chatbot: Hello! I can answer questions based on the
+document you provide. Type &#39;exit&#39; to end the conversation.&quot;)
+while True:
+user_input = input(&quot;You: &quot;).strip()
+if user_input.lower() in [&quot;exit&quot;, &quot;quit&quot;, &quot;bye&quot;, &quot;goodbye&quot;]:
+print(&quot;Chatbot: Goodbye! Have a great day!&quot;)
+break
+# Use the question-answering pipeline to find the answer
+within the document
+answer = question_answering(question=user_input,
+context=document)
+print(f&quot;Chatbot: {answer[&#39;answer&#39;]}&quot;)
